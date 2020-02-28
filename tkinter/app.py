@@ -58,7 +58,12 @@ def action():
     email   =mail_var.get()
     sex    = gender_var.get()
     radio = usertype.get()
-    print(f'{username} is {userage} years old , {email},{sex},{radio}')
+    if check_btn1_var.get() == 0:
+        subscribed = 'No'
+    else:
+        subscribed = 'Yes'
+
+    print(f'{username} is {userage} years old , {email},{sex},{radio},{subscribed}')
 submit_button=ttk.Button(root, text='Submit', command=action)
 submit_button.grid(row=6,column=1)
 
