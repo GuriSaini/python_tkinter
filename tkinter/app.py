@@ -39,17 +39,27 @@ gender_combobox['values'] =('Male','Female','Other')
 gender_combobox.current(0)
 gender_combobox.grid(row=3, column=1)
 
+#radio button
+usertype = tk.StringVar()
+radio_btn1=ttk.Radiobutton(root,text='Student',value='Student',variable=usertype)
+radio_btn1.grid(row=4,column=0)
 
+radio_btn2=ttk.Radiobutton(root,text='Teacher',value='Teacher',variable=usertype)
+radio_btn2.grid(row=4,column=1)
 
-
+#check button
+check_btn1_var = tk.IntVar()
+check_btn1=ttk.Checkbutton(root, text='Check if you want',variable=check_btn1_var)
+check_btn1.grid(row=5,columnspan=3)
 #create button
 def action():
     username=name_var.get()
     userage =age_var.get()
     email   =mail_var.get()
     sex    = gender_var.get()
-    print(f'{username} is {userage} years old , {email},{sex}')
+    radio = usertype.get()
+    print(f'{username} is {userage} years old , {email},{sex},{radio}')
 submit_button=ttk.Button(root, text='Submit', command=action)
-submit_button.grid(row=4,column=1)
+submit_button.grid(row=6,column=1)
 
 root.mainloop()
