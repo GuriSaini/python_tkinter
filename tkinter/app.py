@@ -15,6 +15,9 @@ age_label.grid(row=1,column=0,sticky=tk.W)
 email_label = ttk.Label(root, text='Enter your E-mail')
 email_label.grid(row=2,column=0,sticky=tk.W)
 
+gender_label = ttk.Label(root,text='Select Sex')
+gender_label.grid(row=3,column=0,sticky=tk.W)
+
 #create entry box
 name_var = tk.StringVar()
 name_entrybox = ttk.Entry(root, width=16, textvariable = name_var)
@@ -28,13 +31,20 @@ mail_var = tk.StringVar()
 mail_entrybox = ttk.Entry(root, width=16, textvariable = mail_var)
 mail_entrybox.grid(row=2,column=1)
 
+#create comobox
+gender_var =tk.StringVar()
+gender_combobox = ttk.Combobox(root,width=16)
+gender_combobox['values'] =('Male','Female','Other')
+gender_combobox.grid(row=3, column=1)
+
 #create button
 def action():
     username=name_var.get()
     userage =age_var.get()
     email   =mail_var.get()
-    print(f'{username} is {userage} years old , {email}')
+    sex    = gender_var.get()
+    print(f'{username} is {userage} years old , {email},{sex}')
 submit_button=ttk.Button(root, text='Submit', command=action)
-submit_button.grid(row=3,column=1)
+submit_button.grid(row=4,column=1)
 
 root.mainloop()
