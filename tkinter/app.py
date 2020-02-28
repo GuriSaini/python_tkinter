@@ -22,6 +22,7 @@ gender_label.grid(row=3,column=0,sticky=tk.W)
 name_var = tk.StringVar()
 name_entrybox = ttk.Entry(root, width=16, textvariable = name_var)
 name_entrybox.grid(row=0,column=1)
+name_entrybox.focus()
 
 age_var = tk.StringVar()
 age_entrybox = ttk.Entry(root, width=16, textvariable = age_var)
@@ -33,9 +34,13 @@ mail_entrybox.grid(row=2,column=1)
 
 #create comobox
 gender_var =tk.StringVar()
-gender_combobox = ttk.Combobox(root,width=16)
+gender_combobox = ttk.Combobox(root,width=16,textvariable = gender_var,state='readonly')
 gender_combobox['values'] =('Male','Female','Other')
+gender_combobox.current(0)
 gender_combobox.grid(row=3, column=1)
+
+
+
 
 #create button
 def action():
