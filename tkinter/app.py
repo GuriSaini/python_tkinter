@@ -64,6 +64,11 @@ def action():
         subscribed = 'Yes'
 
     print(f'{username} is {userage} years old , {email},{sex},{radio},{subscribed}')
+    
+    with open('file.txt','a') as f:
+        f.write(f'{username},{userage},{email},{sex},{radio},{subscribed}\n')
+    
+
 submit_button=ttk.Button(root, text='Submit', command=action)
 submit_button.grid(row=6,column=1)
 
