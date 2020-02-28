@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
+from csv import DictWriter
+import os
 root = tk.Tk()
 root.title('GUI APP')
 #pack #grid
@@ -65,8 +67,21 @@ def action():
 
     print(f'{username} is {userage} years old , {email},{sex},{radio},{subscribed}')
     
-    with open('file.txt','a') as f:
-        f.write(f'{username},{userage},{email},{sex},{radio},{subscribed}\n')
+    # with open('file.txt','a') as f:
+    #     f.write(f'{username},{userage},{email},{sex},{radio},{subscribed}\n')
+
+    with open('file.csv','a',newline="") as f:
+        dic_writer = DictWriter(f, fieldnames=['UserName','User Age','User Email','User Gender','User Type','Subscribed'])
+        if os.stat('file.csv').st_size==0:
+            dic_writer.writeheader()
+        dic_writer.writerow({
+            'UserName' : username,
+            'User Age' : userage,
+            'User Email' : email,
+            'User Gender' : sex,
+            'User Type' : radio,
+            'Subscribed' : subscribed
+        })
     
     name_entrybox.delete(0, tk.END)
     age_entrybox.delete(0, tk.END)
