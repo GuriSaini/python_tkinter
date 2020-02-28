@@ -69,7 +69,8 @@ def action():
         f.write(f'{username},{userage},{email},{sex},{radio},{subscribed}\n')
     
     name_entrybox.delete(0, tk.END)
-    userage.delete(0, tk.END)
+    age_entrybox.delete(0, tk.END)
+    mail_entrybox.delete(0,tk.END)
     email(0, tk.END)
     name_label.configure(foreground='Blue')
 
