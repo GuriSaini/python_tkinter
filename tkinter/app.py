@@ -68,6 +68,10 @@ def action():
     with open('file.txt','a') as f:
         f.write(f'{username},{userage},{email},{sex},{radio},{subscribed}\n')
     
+    name_entrybox.delete(0, tk.END)
+    userage.delete(0, tk.END)
+    email(0, tk.END)
+    name_label.configure(foreground='Blue')
 
 submit_button=ttk.Button(root, text='Submit', command=action)
 submit_button.grid(row=6,column=1)
