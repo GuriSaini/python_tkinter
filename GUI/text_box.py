@@ -20,5 +20,6 @@ name.focus() #place cursor into text box
 #buttn
 action = ttk.Button(text='Click me',width=10,command=click_me)
 action.grid(column=3,row=5)
+# action.configure(state='disable')  #disable button
 
 root.mainloop()
