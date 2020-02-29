@@ -16,7 +16,7 @@ label.grid(column=2,row=1)
 name_var = tk.StringVar()
 name = ttk.Entry(root,textvariable=name_var,width=16)
 name.grid(column=3,row=1)
-
+name.focus() #place cursor into text box
 #buttn
 action = ttk.Button(text='Click me',width=10,command=click_me)
 action.grid(column=3,row=5)
