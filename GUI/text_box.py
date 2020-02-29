@@ -27,6 +27,23 @@ number_chosen['values'] = (1,2,54,66,33)
 number_chosen.grid(column=2,row=2)
 number_chosen.current(0)
 
+#radio button
+color1 = "Blue"
+color2 = "Red"
+
+def change_bg():
+    value = radVar.get()
+
+    if value == 1: root.configure(background=color1)
+    elif value == 2: root.configure(background=color2)
+    
+
+radVar = tk.IntVar()
+rad1 = ttk.Radiobutton(root,text=color1,variable=radVar,value=1,command=change_bg)
+rad1.grid(column=2,row=3)
+rad2 = ttk.Radiobutton(root,text=color2,variable=radVar,value=2,command=change_bg)
+rad2.grid(column=3,row=3)
+
 #buttn
 action = ttk.Button(text='Click me',width=10,command=click_me)
 action.grid(column=3,row=5)
